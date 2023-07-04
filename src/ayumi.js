@@ -40,6 +40,7 @@ const token = new SkyWayAuthToken({
         ],
       },
     },
+
 }).encode('gHYUFPOituZ/3UsaCqP5sHLKsF+4i2+Z85+YuozeHEs=');
 (async () => {
     const localVideo = document.getElementById('local-video');
@@ -60,7 +61,7 @@ const token = new SkyWayAuthToken({
   
       const context = await SkyWayContext.Create(token);
       const room = await SkyWayRoom.FindOrCreate(context, {
-        type: 'p2p',
+        type: 'sfu',
         name: roomNameInput.value,
       });
       const me = await room.join();
@@ -70,7 +71,7 @@ const token = new SkyWayAuthToken({
       await me.publish(audio);
       await me.publish(video);
   
-      const subscribeAndAttach = (publication) => {
+      /*const subscribeAndAttach = (publication) => {
         if (publication.publisher.id === me.id) return;
   
         const subscribeButton = document.createElement('button');
@@ -98,7 +99,7 @@ const token = new SkyWayAuthToken({
           stream.attach(newMedia);
           remoteMediaArea.appendChild(newMedia);
         };
-      };
+      };*/
   
       room.publications.forEach(subscribeAndAttach);
       room.onStreamPublished.add((e) => subscribeAndAttach(e.publication));

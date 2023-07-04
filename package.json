@@ -8,6 +8,7 @@
     "yuuri":"parcel ./src/yuuri.html",
     "ayumi":"parcel ./src/ayumi.html",
     "rinka":"parcel ./src/rinka.html",
+    "risa":"parcel ./src/risa.html",
     "test": "echo \"Error: no test specified\""
   },
   "author": "",
