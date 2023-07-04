@@ -40,6 +40,7 @@ const token = new SkyWayAuthToken({
         ],
       },
     },
+
 }).encode('gHYUFPOituZ/3UsaCqP5sHLKsF+4i2+Z85+YuozeHEs=');
 (async () => {
     const localVideo = document.getElementById('local-video');
