@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel ./src/index.html",
-    "yuuri":"parcel ./src/yuuri.html",
+    "yuuri":"parcel ./src/videochat-top.html",
     "ayumi":"parcel ./src/ayumi.html",
     "rinka":"parcel ./src/rinka.html",
     "risa":"parcel ./src/risa.html",

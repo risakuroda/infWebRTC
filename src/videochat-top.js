@@ -6,21 +6,21 @@ const karaoke = document.getElementById('karaoke');
 
 music.onclick = function nextpage(){
     var roomNameInput = music.value;
-    window.open(`videochat-room.html?value=${roomNameInput}`);
+    window.open(`room.html?value=${roomNameInput}`);
 };
 movie.onclick = function nextpage(){
     var roomNameInput = movie.value;
-    window.open(`videochat-room.html?value=${roomNameInput}`);
+    window.open(`room.html?value=${roomNameInput}`);
 };
 youtube.onclick = function nextpage(){
     var roomNameInput = movie.value;
-    window.open(`videochat-room.html?value=${roomNameInput}`);
+    window.open(`room.html?value=${roomNameInput}`);
 };
 divination.onclick = function nextpage(){
     var roomNameInput = movie.value;
-    window.open(`videochat-room.html?value=${roomNameInput}`);
+    window.open(`room.html?value=${roomNameInput}`);
 };
 karaoke.onclick = function nextpage(){
     var roomNameInput = movie.value;
-    window.open(`videochat-room.html?value=${roomNameInput}`);
+    window.open(`room.html?value=${roomNameInput}`);
 };
