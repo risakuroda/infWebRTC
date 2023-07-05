@@ -31,3 +31,21 @@
     transition-timing-function: ease-out;
     color: #ff1a1a;
   }
+
+
+  *{
+    margin: 0;
+    padding: 0;
+}
+
+#counter{
+    width: 100%;
+    padding: 1em 0;
+    font-size: 64pt;
+    text-align: center;
+}
+
+#btnAdd{
+    width: 100%;
+    font-size: 64pt;
+}

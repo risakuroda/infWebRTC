@@ -107,68 +107,22 @@ const token = new SkyWayAuthToken({
 })();
 
 
-//画面操作に必要な要素を取得する
-const times = document.querySelector ('#times')
-//画面クリック時にイベントを発火する（Clickイベントを登録する）
-like.addEventListner('click', (i) => {
-})
-//クリック時間の制御
-let clickTime = 0
-like.addEventListener('dbclick', (i) => {
-  if(clickTime === 0) {
-    clickTime = new Date().getTime()
-  } else {
-    if((new Date().getTime() - clickTime) < 800) {
- 
-    } else {
-      clickTime = new Date().getTime()
-    }
-  }
-})
-//画像をダブルクリックした際に表示されるハートを作成する
-const createHeart = (i) => {
-    // https://fontawesome.come
-    const heart = document.createElement('i')
-    heart.classList.add('fas')
-    heart.classList.add('fa-heart')
+let counter, btnAdd;
+let i;
 
-    //クリックした位置を取得する
-    const x = e.clientX
-    const y = e.clientY
-
-    //ページから見て画像の位置を取得する
-    const leftOffset = e.target.offsetLeft
-    const topOffset = e.target.offsetTop
-
-    // ハートを出す位置を制御
-  // 画像の位置とクリック位置から計算
-  const xInside = x - leftOffset
-  const yInside = y - topOffset
- 
-  // ハートの位置を指定
-  // スタイルの.loveMe .fa-heart {}にてposition: absolute;を
-  // 指定しているため、位置を制御できる
-  heart.style.top = `${yInside}px`
-  heart.style.left = `${xInside}px`
- 
-  // 子要素として追加
-  like.appendChild(heart)
+function addCount(){
+    n++;
+    counter.innerHTML = i;
 }
 
-// クリック時間の制御
-// いいね数をカウント
-let timesClicked = 0
- 
-// クリックイベントの登録
- 
-// ハートの作成
-const createHeart1 = (i) => {
+window.addEventListener("load", ()=>{
+    // 起動時の処理
+    counter = document.getElementById("counter");
+    btnAdd = document.getElementById("btnAdd");
+    i = 0;
 
-  // いいね数を増加して挿入
-  times.innerHTML = ++timesClicked
-  
-}
-
+    btnAdd.addEventListener("click", addCount);
+});
 
 
  
