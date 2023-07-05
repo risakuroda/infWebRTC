@@ -45,8 +45,7 @@ const token = new SkyWayAuthToken({
     const localVideo = document.getElementById('local-video');
     const remoteVideoArea = document.getElementById('remote-video-area');
     const remoteAudioArea = document.getElementById('remote-audio-area');
-    const urlParams = new URLSearchParams(window.location.search);
-    const roomNameInput = urlParams.get('value');
+    const roomNameInput = location.search;
     const userName = document.getElementById('user-name');
   
     const myId = document.getElementById('my-id');
