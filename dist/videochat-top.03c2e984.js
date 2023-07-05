@@ -5,7 +5,7 @@ const divination = document.getElementById("divination");
 const karaoke = document.getElementById("karaoke");
 music.onclick = function nextpage() {
     var roomNameInput = music.value;
-    window.open(`room.html?value=${roomNameInput}`);
+    window.open(`room.html`);
 };
 movie.onclick = function nextpage() {
     var roomNameInput = movie.value;
