@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/ayumi.b2625c6b.css">
         <title>SkyWay Tutorial</title>
         
-        <tilte>counter</tilte>
+        <tilte></tilte>
       </head>
       <body>
         <p>ID: <span id="my-id"></span></p>
@@ -17,9 +17,38 @@
         <video id="local-video" width="400px" muted="" playsinline=""></video>
         <div id="button-area"></div>
         <div id="remote-media-area"></div>
+       
+        <script src="/ayumi.4d6bcbeb.js" defer=""></script>
         <script src="/ayumi.f9b5af4b.js" defer=""></script>
-        
-        <p id="counter">0</p>
-        <p><input type="button" id="btnAdd" value="♡"></p>
-      </body>
+      
+        <!--<script type="module">
+        import {addCount} from "./ayumi.js";
+        window.addEventListner('DOMContentLoaded', ()=>{
+          const likeImg = document.querySelector("#like-img");
+          likeImg.addEventListener("click", addCount);
+        });
+      </script>
+       -->
+       <!--
+       <script>
+        let counter = 0;
+    
+        function addCount() {
+            counter++;
+            document.getElementById("counter").textContent = counter;
+        }
+    
+        window.addEventListener("DOMContentLoaded", () => {
+            const likeImg = document.getElementById("like-img");
+            likeImg.addEventListener("click", addCount);
+        });
+    </script>
+    -->
+    <script src="/ayumi.f2d2c5bd.js"></script>
+         <p id="counter">0</p>
+        <!--<input type="image"  src="..\img\heart.png" alt="Like" id=btnAdd />-->
+        <!--<a href="javascript:addCount();"><img src="..\img\heart.png" alt="Like"></a>-->
+        <img src="/heart.869a033f.png" alt="Like" onclick="addCount()" id="btnAdd">
+      
+    </body>
 </html>
