@@ -28,12 +28,11 @@
 
 #counter {
   width: 5%;
-  padding-left: 1.5em;
+  padding-left: 1em;
   font-size: 13pt;
 }
 
 #btnAdd {
-  color: #ff0461;
   width: 4%;
   font-size: 1pt;
 }
