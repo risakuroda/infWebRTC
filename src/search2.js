@@ -16,7 +16,9 @@ function fetchData(keyword){
     console.log(error);
   })
 }
-const search = location.search;
+const params = decodeURI(location.search);
+const search = params.slice(23);
+console.log(search);
 youtube.onclick = () =>{
   fetchData(search);
 };

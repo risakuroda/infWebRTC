@@ -48,9 +48,8 @@ const token = new SkyWayAuthToken({
   const remoteAudioArea = document.getElementById('remote-audio-area');
   
   const params = decodeURI(location.search);
-  const roomNameInput = params.slice(7,-14);
+  const roomNameInput = params.slice(6,-16);
   
-  const userName = document.getElementById('user-name');
   const myId = document.getElementById('my-id');
   const joinButton = document.getElementById('join');
 
