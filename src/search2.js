@@ -20,5 +20,3 @@ const search = location.search;
 youtube.onclick = () =>{
   fetchData(search);
 };
-
-
