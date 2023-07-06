@@ -27,15 +27,14 @@
 }
 
 #counter {
-  text-align: center;
-  width: 100%;
-  padding: 1em 0;
-  font-size: 64pt;
+  width: 5%;
+  padding-left: 1em;
+  font-size: 15pt;
 }
 
 #btnAdd {
-  width: 100%;
-  font-size: 64pt;
+  width: 5%;
+  font-size: 2pt;
 }
 
 /*# sourceMappingURL=ayumi.b2625c6b.css.map */

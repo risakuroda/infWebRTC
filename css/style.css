@@ -39,13 +39,14 @@
 }
 
 #counter{
-    width: 100%;
-    padding: 1em 0;
-    font-size: 64pt;
-    text-align: center;
+    width: 5%;
+    font-size: 15pt;
+    padding-left:1em
 }
 
 #btnAdd{
-    width: 100%;
-    font-size: 64pt;
+    width: 5%;
+    font-size: 2pt;
 }
+
+
