@@ -111,12 +111,13 @@ let counter, btnAdd;
 let i;
 
 function addCount(){
-    n++;
+    i++;
     counter.innerHTML = i;
 }
 
 window.addEventListener("load", ()=>{
     // 起動時の処理
+    
     counter = document.getElementById("counter");
     btnAdd = document.getElementById("btnAdd");
     i = 0;
