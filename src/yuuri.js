@@ -44,7 +44,8 @@ const token = new SkyWayAuthToken({
 (async () => {
     const localVideo = document.getElementById('local-video');
     const buttonArea = document.getElementById('button-area');
-    const remoteMediaArea = document.getElementById('remote-media-area');
+    const remoteVideoArea = document.getElementById('remote-video-area');
+    const remoteAudioArea = document.getElementById('remote-audio-area');
     const roomNameInput = document.getElementById('room-name');
   
     const myId = document.getElementById('my-id');
@@ -70,38 +71,49 @@ const token = new SkyWayAuthToken({
       await me.publish(audio);
       await me.publish(video);
   
-      const subscribeAndAttach = (publication) => {
-        if (publication.publisher.id === me.id) return;
-  
-        const subscribeButton = document.createElement('div');
-        subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
-        buttonArea.appendChild(subscribeButton);
-  
-        //subscribeButton.onclick = async () => {
-        subscribeButton=async()=>{
-            const { stream } = await me.subscribe(publication.id);
-  
-          let newMedia;
-          switch (stream.track.kind) {
-            case 'video':
-              newMedia = document.createElement('video');
-              newMedia.playsInline = true;
-              newMedia.autoplay = true;
-              break;
-            case 'audio':
-              newMedia = document.createElement('audio');
-              newMedia.controls = true;
-              newMedia.autoplay = true;
-              break;
-            default:
-              return;
-          }
-          stream.attach(newMedia);
-          remoteMediaArea.appendChild(newMedia);
-        };
-      };
-  
-      room.publications.forEach(subscribeAndAttach);
-      room.onStreamPublished.add((e) => subscribeAndAttach(e.publication));
+        const subscribeAndAttach = (publication) => {
+            if (publication.publisher.id === me.id) return;
+        
+            const subscribeButton = document.createElement('div');
+            subscribeButton.className = 'col-3 content';
+            subscribeButton.textContent = `${publication.id}`;
+            
+
+            async function mediaRun() {
+                const { stream } = await me.subscribe(publication.id);
+
+                let newMedia;
+                switch (stream.track.kind) {
+                  case 'video':
+                    newMedia = document.createElement('video');
+                    newMedia.className = 'col-3 content';
+                    newMedia.playsInline = true;
+                    newMedia.autoplay = true;
+                    break;
+                  case 'audio':
+                    newMedia = document.createElement('audio');
+                    newMedia.className = 'col-3 content';
+                    newMedia.controls = true;
+                    newMedia.autoplay = true;
+                    break;
+                  default:
+                    return;
+                }
+                switch (stream.track.kind){
+                    case 'video':
+                        stream.attach(newMedia);
+                        remoteVideoArea.appendChild(newMedia);
+                        break;
+                    case 'audio':
+                        stream.attach(newMedia);
+                        remoteAudioArea.appendChild(newMedia);
+                        break;
+                    default: return;
+                }
+            };
+            mediaRun();
+        }
+        room.publications.forEach(subscribeAndAttach);
+        room.onStreamPublished.add((e) => subscribeAndAttach(e.publication));    
     };
 })();

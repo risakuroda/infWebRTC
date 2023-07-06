@@ -105,3 +105,25 @@ const token = new SkyWayAuthToken({
       room.onStreamPublished.add((e) => subscribeAndAttach(e.publication));
     };
 })();
+
+
+let counter, btnAdd;
+let i;
+
+function addCount(){
+    i++;
+    counter.innerHTML = i;
+}
+
+window.addEventListener("load", ()=>{
+    // 起動時の処理
+    
+    counter = document.getElementById("counter");
+    btnAdd = document.getElementById("btnAdd");
+    i = 0;
+
+    btnAdd.addEventListener("click", addCount);
+});
+
+
+ 
