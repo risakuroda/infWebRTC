@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"adn8Z":[function(require,module,exports) {
+})({"aTfj2":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "50b84051e37e3acf";
+module.bundle.HMR_BUNDLE_ID = "bed887d14d6bcbeb";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -573,7 +573,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"7bb6f":[function(require,module,exports) {
+},{}],"gLLPy":[function(require,module,exports) {
 var _room = require("@skyway-sdk/room");
 const token = new (0, _room.SkyWayAuthToken)({
     jti: (0, _room.uuidV4)(),
@@ -645,49 +645,44 @@ const token = new (0, _room.SkyWayAuthToken)({
         if (roomNameInput.value === "") return;
         const context = await (0, _room.SkyWayContext).Create(token);
         const room = await (0, _room.SkyWayRoom).FindOrCreate(context, {
-            type: "sfu",
+            type: "p2p",
             name: roomNameInput.value
         });
         const me = await room.join();
         myId.textContent = me.id;
         await me.publish(audio);
         await me.publish(video);
-        /*const subscribeAndAttach = (publication) => {
-        if (publication.publisher.id === me.id) return;
-  
-        const subscribeButton = document.createElement('button');
-        subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
-        buttonArea.appendChild(subscribeButton);
-  
-        subscribeButton.onclick = async () => {
-          const { stream } = await me.subscribe(publication.id);
-  
-          let newMedia;
-          switch (stream.track.kind) {
-            case 'video':
-              newMedia = document.createElement('video');
-              newMedia.playsInline = true;
-              newMedia.autoplay = true;
-              break;
-            case 'audio':
-              newMedia = document.createElement('audio');
-              newMedia.controls = true;
-              newMedia.autoplay = true;
-              break;
-            default:
-              return;
-          }
-          stream.attach(newMedia);
-          remoteMediaArea.appendChild(newMedia);
+        const subscribeAndAttach = (publication)=>{
+            if (publication.publisher.id === me.id) return;
+            const subscribeButton = document.createElement("button");
+            subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
+            buttonArea.appendChild(subscribeButton);
+            subscribeButton.onclick = async ()=>{
+                const { stream } = await me.subscribe(publication.id);
+                let newMedia;
+                switch(stream.track.kind){
+                    case "video":
+                        newMedia = document.createElement("video");
+                        newMedia.playsInline = true;
+                        newMedia.autoplay = true;
+                        break;
+                    case "audio":
+                        newMedia = document.createElement("audio");
+                        newMedia.controls = true;
+                        newMedia.autoplay = true;
+                        break;
+                    default:
+                        return;
+                }
+                stream.attach(newMedia);
+                remoteMediaArea.appendChild(newMedia);
+            };
         };
-      };*/ room.publications.forEach(subscribeAndAttach);
+        room.publications.forEach(subscribeAndAttach);
         room.onStreamPublished.add((e)=>subscribeAndAttach(e.publication));
     };
 })();
 
-<<<<<<< HEAD:dist/ayumi.f9b5af4b.js
-},{"@skyway-sdk/room":"aJVWS"}]},["1cDvh","9qMUc"], "9qMUc", "parcelRequire2d8a")
-=======
 },{"@skyway-sdk/room":"aJVWS"}],"aJVWS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -48577,7 +48572,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["adn8Z","7bb6f"], "7bb6f", "parcelRequire2d8a")
->>>>>>> c7be094c4acdb7844cd1ef52cb98c97bba6ca4e5:dist/risa.js
+},{}]},["aTfj2","gLLPy"], "gLLPy", "parcelRequire2d8a")
 
-//# sourceMappingURL=risa.js.map
+//# sourceMappingURL=search2.4d6bcbeb.js.map
