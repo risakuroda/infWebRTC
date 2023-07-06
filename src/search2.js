@@ -16,8 +16,9 @@ function fetchData(keyword){
     console.log(error);
   })
 }
+const search = location.search;
 youtube.onclick = () =>{
-  fetchData('もっぱん');
+  fetchData(search);
 };
 
 
