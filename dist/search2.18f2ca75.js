@@ -588,8 +588,9 @@ function fetchData(keyword) {
         console.log(error);
     });
 }
+const search = location.search;
 youtube.onclick = ()=>{
-    fetchData("もっぱん");
+    fetchData(search);
 };
 
 },{}]},["bxDfR","2DCip"], "2DCip", "parcelRequire2d8a")
