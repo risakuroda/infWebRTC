@@ -12,15 +12,15 @@ movie.onclick = function nextpage() {
     document.location.href = `room.html?value=${roomNameInput}`;
 };
 youtube.onclick = function nextpage() {
-    var roomNameInput = movie.value;
+    var roomNameInput = youtube.value;
     document.location.href = `room.html?value=${roomNameInput}`;
 };
 divination.onclick = function nextpage() {
-    var roomNameInput = movie.value;
+    var roomNameInput = divination.value;
     document.location.href = `room.html?value=${roomNameInput}`;
 };
 karaoke.onclick = function nextpage() {
-    var roomNameInput = movie.value;
+    var roomNameInput = karaoke.value;
     document.location.href = `room.html?value=${roomNameInput}`;
 };
 
