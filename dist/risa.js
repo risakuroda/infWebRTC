@@ -685,9 +685,6 @@ const token = new (0, _room.SkyWayAuthToken)({
     };
 })();
 
-<<<<<<< HEAD:dist/ayumi.f9b5af4b.js
-},{"@skyway-sdk/room":"aJVWS"}]},["1cDvh","9qMUc"], "9qMUc", "parcelRequire2d8a")
-=======
 },{"@skyway-sdk/room":"aJVWS"}],"aJVWS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -48578,6 +48575,5 @@ exports.export = function(dest, destName, get) {
 };
 
 },{}]},["adn8Z","7bb6f"], "7bb6f", "parcelRequire2d8a")
->>>>>>> c7be094c4acdb7844cd1ef52cb98c97bba6ca4e5:dist/risa.js
 
 //# sourceMappingURL=risa.js.map
