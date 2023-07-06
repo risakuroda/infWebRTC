@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"bxDfR":[function(require,module,exports) {
+})({"57HIq":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "ac41ea1918f2ca75";
+module.bundle.HMR_BUNDLE_ID = "292c46426615e5cb";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -573,7 +573,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"2DCip":[function(require,module,exports) {
+},{}],"8gVq6":[function(require,module,exports) {
 function fetchData(keyword) {
     fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyApIvZ8TBjELwOKFSkT1YVMay0X1d-JP_w&type=video&part=snippet&q=${keyword}`).then((response)=>response.json()).then((data)=>{
         for(let i = 0; i < 4; i++){
@@ -594,9 +594,9 @@ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pic
 }
 const youtube = document.getElementById("youtube");
 youtube.onclick = ()=>{
-    fetchData("もっぱん");
+    fetchData("ヒットソング");
 };
 
-},{}]},["bxDfR","2DCip"], "2DCip", "parcelRequire2d8a")
+},{}]},["57HIq","8gVq6"], "8gVq6", "parcelRequire2d8a")
 
-//# sourceMappingURL=search2.18f2ca75.js.map
+//# sourceMappingURL=search.js.map

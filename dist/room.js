@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"754Qc":[function(require,module,exports) {
+})({"fsNsW":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "439a1fb914a8f611";
+module.bundle.HMR_BUNDLE_ID = "cbb1ca234b04613b";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -573,7 +573,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"1yLVk":[function(require,module,exports) {
+},{}],"algwQ":[function(require,module,exports) {
 var _room = require("@skyway-sdk/room");
 const token = new (0, _room.SkyWayAuthToken)({
     jti: (0, _room.uuidV4)(),
@@ -636,18 +636,22 @@ const token = new (0, _room.SkyWayAuthToken)({
     const buttonArea = document.getElementById("button-area");
     const remoteVideoArea = document.getElementById("remote-video-area");
     const remoteAudioArea = document.getElementById("remote-audio-area");
-    const roomNameInput = document.getElementById("room-name");
+    const params = decodeURI(location.search);
+    const roomNameInput = params.slice(7, -14);
+    const userName = document.getElementById("user-name");
     const myId = document.getElementById("my-id");
     const joinButton = document.getElementById("join");
     const { audio, video } = await (0, _room.SkyWayStreamFactory).createMicrophoneAudioAndCameraStream();
     video.attach(localVideo);
     await localVideo.play();
     joinButton.onclick = async ()=>{
-        if (roomNameInput.value === "") return;
+        if (roomNameInput === "") return;
+        console.log(params);
+        console.log(roomNameInput);
         const context = await (0, _room.SkyWayContext).Create(token);
         const room = await (0, _room.SkyWayRoom).FindOrCreate(context, {
             type: "p2p",
-            name: roomNameInput.value
+            name: roomNameInput
         });
         const me = await room.join();
         myId.textContent = me.id;
@@ -48586,6 +48590,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["754Qc","1yLVk"], "1yLVk", "parcelRequire2d8a")
+},{}]},["fsNsW","algwQ"], "algwQ", "parcelRequire2d8a")
 
-//# sourceMappingURL=yuuri.14a8f611.js.map
+//# sourceMappingURL=room.js.map

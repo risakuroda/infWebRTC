@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"aTfj2":[function(require,module,exports) {
+})({"1cDvh":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "bed887d14d6bcbeb";
+module.bundle.HMR_BUNDLE_ID = "9daec443f9b5af4b";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -573,7 +573,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"gLLPy":[function(require,module,exports) {
+},{}],"9qMUc":[function(require,module,exports) {
 var _room = require("@skyway-sdk/room");
 const token = new (0, _room.SkyWayAuthToken)({
     jti: (0, _room.uuidV4)(),
@@ -645,43 +645,58 @@ const token = new (0, _room.SkyWayAuthToken)({
         if (roomNameInput.value === "") return;
         const context = await (0, _room.SkyWayContext).Create(token);
         const room = await (0, _room.SkyWayRoom).FindOrCreate(context, {
-            type: "p2p",
+            type: "sfu",
             name: roomNameInput.value
         });
         const me = await room.join();
         myId.textContent = me.id;
         await me.publish(audio);
         await me.publish(video);
-        const subscribeAndAttach = (publication)=>{
-            if (publication.publisher.id === me.id) return;
-            const subscribeButton = document.createElement("button");
-            subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
-            buttonArea.appendChild(subscribeButton);
-            subscribeButton.onclick = async ()=>{
-                const { stream } = await me.subscribe(publication.id);
-                let newMedia;
-                switch(stream.track.kind){
-                    case "video":
-                        newMedia = document.createElement("video");
-                        newMedia.playsInline = true;
-                        newMedia.autoplay = true;
-                        break;
-                    case "audio":
-                        newMedia = document.createElement("audio");
-                        newMedia.controls = true;
-                        newMedia.autoplay = true;
-                        break;
-                    default:
-                        return;
-                }
-                stream.attach(newMedia);
-                remoteMediaArea.appendChild(newMedia);
-            };
+        /*const subscribeAndAttach = (publication) => {
+        if (publication.publisher.id === me.id) return;
+  
+        const subscribeButton = document.createElement('button');
+        subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
+        buttonArea.appendChild(subscribeButton);
+  
+        subscribeButton.onclick = async () => {
+          const { stream } = await me.subscribe(publication.id);
+  
+          let newMedia;
+          switch (stream.track.kind) {
+            case 'video':
+              newMedia = document.createElement('video');
+              newMedia.playsInline = true;
+              newMedia.autoplay = true;
+              break;
+            case 'audio':
+              newMedia = document.createElement('audio');
+              newMedia.controls = true;
+              newMedia.autoplay = true;
+              break;
+            default:
+              return;
+          }
+          stream.attach(newMedia);
+          remoteMediaArea.appendChild(newMedia);
         };
-        room.publications.forEach(subscribeAndAttach);
+      };*/ room.publications.forEach(subscribeAndAttach);
         room.onStreamPublished.add((e)=>subscribeAndAttach(e.publication));
     };
 })();
+let counter, btnAdd;
+let i;
+function addCount() {
+    i++;
+    counter.innerHTML = i;
+}
+window.addEventListener("load", ()=>{
+    // 起動時の処理
+    counter = document.getElementById("counter");
+    btnAdd = document.getElementById("btnAdd");
+    i = 0;
+    btnAdd.addEventListener("click", addCount);
+});
 
 },{"@skyway-sdk/room":"aJVWS"}],"aJVWS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -48572,6 +48587,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["aTfj2","gLLPy"], "gLLPy", "parcelRequire2d8a")
+},{}]},["1cDvh","9qMUc"], "9qMUc", "parcelRequire2d8a")
 
-//# sourceMappingURL=search2.4d6bcbeb.js.map
+//# sourceMappingURL=ayumi.js.map

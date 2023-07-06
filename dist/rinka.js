@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"aTfj2":[function(require,module,exports) {
+})({"kkmS8":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "bed887d14d6bcbeb";
+module.bundle.HMR_BUNDLE_ID = "7b5d0b15991731e3";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -573,7 +573,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"gLLPy":[function(require,module,exports) {
+},{}],"8hLxs":[function(require,module,exports) {
 var _room = require("@skyway-sdk/room");
 const token = new (0, _room.SkyWayAuthToken)({
     jti: (0, _room.uuidV4)(),
@@ -48572,6 +48572,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["aTfj2","gLLPy"], "gLLPy", "parcelRequire2d8a")
+},{}]},["kkmS8","8hLxs"], "8hLxs", "parcelRequire2d8a")
 
-//# sourceMappingURL=index.4d6bcbeb.js.map
+//# sourceMappingURL=rinka.js.map

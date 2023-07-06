@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"1cDvh":[function(require,module,exports) {
+})({"adn8Z":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "9daec443f9b5af4b";
+module.bundle.HMR_BUNDLE_ID = "50b84051e37e3acf";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -573,7 +573,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"9qMUc":[function(require,module,exports) {
+},{}],"7bb6f":[function(require,module,exports) {
 var _room = require("@skyway-sdk/room");
 const token = new (0, _room.SkyWayAuthToken)({
     jti: (0, _room.uuidV4)(),
@@ -684,19 +684,6 @@ const token = new (0, _room.SkyWayAuthToken)({
         room.onStreamPublished.add((e)=>subscribeAndAttach(e.publication));
     };
 })();
-let counter, btnAdd;
-let i;
-function addCount() {
-    n++;
-    counter.innerHTML = i;
-}
-window.addEventListener("load", ()=>{
-    // 起動時の処理
-    counter = document.getElementById("counter");
-    btnAdd = document.getElementById("btnAdd");
-    i = 0;
-    btnAdd.addEventListener("click", addCount);
-});
 
 },{"@skyway-sdk/room":"aJVWS"}],"aJVWS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -48587,6 +48574,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["1cDvh","9qMUc"], "9qMUc", "parcelRequire2d8a")
+},{}]},["adn8Z","7bb6f"], "7bb6f", "parcelRequire2d8a")
 
-//# sourceMappingURL=ayumi.f9b5af4b.js.map
+//# sourceMappingURL=risa.js.map

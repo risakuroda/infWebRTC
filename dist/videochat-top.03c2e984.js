@@ -10,53 +10,24 @@ const beauty = document.getElementById("beauty");
 const sports = document.getElementById("sports");
 const feature = document.getElementById("feature");
 const fashion = document.getElementById("fashion");
-music.onclick = function() {
-    var roomNameInput = music.value;
-    location.href = `room.html?value=${roomNameInput}`;
-};
-movie.onclick = function() {
-    var roomNameInput = movie.value;
-    document.location.href = `room.html?value=${roomNameInput}`;
-};
-youtube.onclick = function() {
-    var roomNameInput = youtube.value;
-    document.location.href = `room.html?value=${roomNameInput}`;
-};
-divination.onclick = function() {
-    var roomNameInput = divination.value;
-    document.location.href = `room.html?value=${roomNameInput}`;
-};
-karaoke.onclick = function() {
-    var roomNameInput = karaoke.value;
-    document.location.href = `room.html?value=${roomNameInput}`;
-};
-alcohol.onclick = function() {
-    var roomNameInput = alcohol.value;
-    location.href = `room.html?value=${roomNameInput}`;
-};
-money.onclick = function() {
-    var roomNameInput = money.value;
-    document.location.href = `room.html?value=${roomNameInput}`;
-};
-global.onclick = function() {
-    var roomNameInput = global.value;
-    document.location.href = `room.html?value=${roomNameInput}`;
-};
-beauty.onclick = function() {
-    var roomNameInput = beauty.value;
-    document.location.href = `room.html?value=${roomNameInput}`;
-};
-sports.onclick = function() {
-    var roomNameInput = sports.value;
-    document.location.href = `room.html?value=${roomNameInput}`;
-};
-feature.onclick = function() {
-    var roomNameInput = feature.value;
-    document.location.href = `room.html?value=${roomNameInput}`;
-};
-fashion.onclick = function() {
-    var roomNameInput = fashion.value;
-    document.location.href = `room.html?value=${roomNameInput}`;
-};
+clickEvent(music);
+clickEvent(movie);
+clickEvent(youtube);
+clickEvent(divination);
+clickEvent(karaoke);
+clickEvent(alcohol);
+clickEvent(money);
+clickEvent(global);
+clickEvent(beauty);
+clickEvent(sports);
+clickEvent(feature);
+clickEvent(fashion);
+function clickEvent(event) {
+    event.onclick = ()=>{
+        var roomNameInput = event.name;
+        var searchWord = event.value;
+        location.href = `room.html?name=${roomNameInput}&value=${searchWord}`;
+    };
+}
 
 //# sourceMappingURL=videochat-top.03c2e984.js.map

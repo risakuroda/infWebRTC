@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"aTfj2":[function(require,module,exports) {
+})({"754Qc":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "bed887d14d6bcbeb";
+module.bundle.HMR_BUNDLE_ID = "439a1fb914a8f611";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -573,7 +573,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"gLLPy":[function(require,module,exports) {
+},{}],"1yLVk":[function(require,module,exports) {
 var _room = require("@skyway-sdk/room");
 const token = new (0, _room.SkyWayAuthToken)({
     jti: (0, _room.uuidV4)(),
@@ -634,7 +634,8 @@ const token = new (0, _room.SkyWayAuthToken)({
 (async ()=>{
     const localVideo = document.getElementById("local-video");
     const buttonArea = document.getElementById("button-area");
-    const remoteMediaArea = document.getElementById("remote-media-area");
+    const remoteVideoArea = document.getElementById("remote-video-area");
+    const remoteAudioArea = document.getElementById("remote-audio-area");
     const roomNameInput = document.getElementById("room-name");
     const myId = document.getElementById("my-id");
     const joinButton = document.getElementById("join");
@@ -654,29 +655,42 @@ const token = new (0, _room.SkyWayAuthToken)({
         await me.publish(video);
         const subscribeAndAttach = (publication)=>{
             if (publication.publisher.id === me.id) return;
-            const subscribeButton = document.createElement("button");
-            subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
-            buttonArea.appendChild(subscribeButton);
-            subscribeButton.onclick = async ()=>{
+            const subscribeButton = document.createElement("div");
+            subscribeButton.className = "col-3 content";
+            subscribeButton.textContent = `${publication.id}`;
+            async function mediaRun() {
                 const { stream } = await me.subscribe(publication.id);
                 let newMedia;
                 switch(stream.track.kind){
                     case "video":
                         newMedia = document.createElement("video");
+                        newMedia.className = "col-3 content";
                         newMedia.playsInline = true;
                         newMedia.autoplay = true;
                         break;
                     case "audio":
                         newMedia = document.createElement("audio");
+                        newMedia.className = "col-3 content";
                         newMedia.controls = true;
                         newMedia.autoplay = true;
                         break;
                     default:
                         return;
                 }
-                stream.attach(newMedia);
-                remoteMediaArea.appendChild(newMedia);
-            };
+                switch(stream.track.kind){
+                    case "video":
+                        stream.attach(newMedia);
+                        remoteVideoArea.appendChild(newMedia);
+                        break;
+                    case "audio":
+                        stream.attach(newMedia);
+                        remoteAudioArea.appendChild(newMedia);
+                        break;
+                    default:
+                        return;
+                }
+            }
+            mediaRun();
         };
         room.publications.forEach(subscribeAndAttach);
         room.onStreamPublished.add((e)=>subscribeAndAttach(e.publication));
@@ -48572,6 +48586,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["aTfj2","gLLPy"], "gLLPy", "parcelRequire2d8a")
+},{}]},["754Qc","1yLVk"], "1yLVk", "parcelRequire2d8a")
 
-//# sourceMappingURL=rinka.4d6bcbeb.js.map
+//# sourceMappingURL=yuuri.js.map
