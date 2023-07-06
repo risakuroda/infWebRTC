@@ -27,14 +27,12 @@
 }
 
 #counter {
-  width: 5%;
-  padding-left: 1em;
-  font-size: 13pt;
+  vertical-align: 15px;
+  font-size: 15pt;
 }
 
 #btnAdd {
-  width: 4%;
-  font-size: 1pt;
+  width: 5%;
 }
 
 /*# sourceMappingURL=ayumi.b2625c6b.css.map */
