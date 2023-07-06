@@ -10,51 +10,51 @@ const beauty = document.getElementById("beauty");
 const sports = document.getElementById("sports");
 const feature = document.getElementById("feature");
 const fashion = document.getElementById("fashion");
-music.onclick = function nextpage() {
+music.onclick = ()=>{
     var roomNameInput = music.value;
     location.href = `room.html?value=${roomNameInput}`;
 };
-movie.onclick = function nextpage() {
+movie.onclick = ()=>{
     var roomNameInput = movie.value;
     document.location.href = `room.html?value=${roomNameInput}`;
 };
-youtube.onclick = function nextpage() {
+youtube.onclick = ()=>{
     var roomNameInput = youtube.value;
     document.location.href = `room.html?value=${roomNameInput}`;
 };
-divination.onclick = function nextpage() {
+divination.onclick = ()=>{
     var roomNameInput = divination.value;
     document.location.href = `room.html?value=${roomNameInput}`;
 };
-karaoke.onclick = function nextpage() {
+karaoke.onclick = ()=>{
     var roomNameInput = karaoke.value;
     document.location.href = `room.html?value=${roomNameInput}`;
 };
-alcohol.onclick = function nextpage() {
+alcohol.onclick = ()=>{
     var roomNameInput = alcohol.value;
     location.href = `room.html?value=${roomNameInput}`;
 };
-money.onclick = function nextpage() {
+money.onclick = ()=>{
     var roomNameInput = money.value;
     document.location.href = `room.html?value=${roomNameInput}`;
 };
-global.onclick = function nextpage() {
+global.onclick = ()=>{
     var roomNameInput = global.value;
     document.location.href = `room.html?value=${roomNameInput}`;
 };
-beauty.onclick = function nextpage() {
+beauty.onclick = ()=>{
     var roomNameInput = beauty.value;
     document.location.href = `room.html?value=${roomNameInput}`;
 };
-sports.onclick = function nextpage() {
+sports.onclick = ()=>{
     var roomNameInput = sports.value;
     document.location.href = `room.html?value=${roomNameInput}`;
 };
-feature.onclick = function nextpage() {
+feature.onclick = ()=>{
     var roomNameInput = feature.value;
     document.location.href = `room.html?value=${roomNameInput}`;
 };
-fashion.onclick = function nextpage() {
+fashion.onclick = ()=>{
     var roomNameInput = fashion.value;
     document.location.href = `room.html?value=${roomNameInput}`;
 };
