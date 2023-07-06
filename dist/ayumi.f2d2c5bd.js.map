@@ -1,1 +1,0 @@
-{"mappings":"AAAA,IAAI,UAAU;AAEd,SAAS;IACL;IACA,SAAS,eAAe,WAAW,YAAY;AACnD","sources":["src/ayumi2.js"],"sourcesContent":["let counter = 0;\r\n    \r\nfunction addCount() {\r\n    counter++;\r\n    document.getElementById(\"counter\").innerText = counter;\r\n}\r\n\r\n"],"names":[],"version":3,"file":"ayumi.f2d2c5bd.js.map","sourceRoot":"/__parcel_source_root/"}
