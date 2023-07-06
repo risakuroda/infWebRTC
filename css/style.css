@@ -3,6 +3,8 @@
 #bo{
     background-color: darksalmon;
 }
+<<<<<<< HEAD
+=======
 .button {
     left: calc(50% - 100px);
   }
@@ -48,5 +50,9 @@
     width: 5%;
     font-size: 2pt;
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d00b435af159bb541b634db809305d836c916fdc
+>>>>>>> fac37072cc72d7ecdf8612dbbc7d670433d9b32f
