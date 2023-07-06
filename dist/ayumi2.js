@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"57HIq":[function(require,module,exports) {
+})({"4eWbZ":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "292c46426615e5cb";
+module.bundle.HMR_BUNDLE_ID = "0319d3ee3433364d";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -573,30 +573,13 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"8gVq6":[function(require,module,exports) {
-function fetchData(keyword) {
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyApIvZ8TBjELwOKFSkT1YVMay0X1d-JP_w&type=video&part=snippet&q=${keyword}`).then((response)=>response.json()).then((data)=>{
-        for(let i = 0; i < 4; i++){
-            console.log(data.items[i].id.videoId);
-            const videoID = data.items[i].id.videoId;
-            const youtubeAppend = document.createElement("iframe");
-            //youtubeAppend.src=`https://www.youtube.com/watch?v=${videoID}`;
-            youtubeAppend.src = `https://www.youtube.com/embed/${videoID}`;
-            document.getElementById("youtube").appendChild(youtubeAppend);
-        /*
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nWHvKl10t_U" title="YouTube video player" frameborder="0" 
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-*/ }
-    }).catch((error)=>{
-        console.log(error);
-    });
+},{}],"dGNJD":[function(require,module,exports) {
+let counter = 0;
+function addCount() {
+    counter++;
+    document.getElementById("counter").innerText = counter;
 }
-const youtube = document.getElementById("youtube");
-youtube.onclick = ()=>{
-    fetchData("ヒットソング");
-};
 
-},{}]},["57HIq","8gVq6"], "8gVq6", "parcelRequire2d8a")
+},{}]},["4eWbZ","dGNJD"], "dGNJD", "parcelRequire2d8a")
 
-//# sourceMappingURL=search.js.map
+//# sourceMappingURL=ayumi2.js.map
