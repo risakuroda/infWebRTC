@@ -573,28 +573,32 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
+<<<<<<< HEAD:dist/search.js
 },{}],"8gVq6":[function(require,module,exports) {
+=======
+},{}],"2DCip":[function(require,module,exports) {
+const youtube = document.getElementById("youtube");
+>>>>>>> afd1e65b425f5368129a484c7a3f15da57189c3e:dist/search2.18f2ca75.js
 function fetchData(keyword) {
     fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyApIvZ8TBjELwOKFSkT1YVMay0X1d-JP_w&type=video&part=snippet&q=${keyword}`).then((response)=>response.json()).then((data)=>{
         for(let i = 0; i < 4; i++){
             console.log(data.items[i].id.videoId);
             const videoID = data.items[i].id.videoId;
             const youtubeAppend = document.createElement("iframe");
-            //youtubeAppend.src=`https://www.youtube.com/watch?v=${videoID}`;
             youtubeAppend.src = `https://www.youtube.com/embed/${videoID}`;
-            document.getElementById("youtube").appendChild(youtubeAppend);
-        /*
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nWHvKl10t_U" title="YouTube video player" frameborder="0" 
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-*/ }
+            youtube.appendChild(youtubeAppend);
+        }
     }).catch((error)=>{
         console.log(error);
     });
 }
-const youtube = document.getElementById("youtube");
+const search = location.search;
 youtube.onclick = ()=>{
+<<<<<<< HEAD:dist/search.js
     fetchData("ヒットソング");
+=======
+    fetchData(search);
+>>>>>>> afd1e65b425f5368129a484c7a3f15da57189c3e:dist/search2.18f2ca75.js
 };
 
 },{}]},["57HIq","8gVq6"], "8gVq6", "parcelRequire2d8a")

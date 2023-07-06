@@ -1,25 +1,54 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="../css/style.css">
         <title>SkyWay Tutorial</title>
         
-        <tilte>counter</tilte>
+        <tilte></tilte>
       </head>
       <body>
         <p>ID: <span id="my-id"></span></p>
         <div>
-          room name: <input id="room-name" type="text" />
+          room name: <input id="room-name" type="text">
           <button id="join">join</button>
         </div>
-        <video id="local-video" width="400px" muted playsinline></video>
+        <video id="local-video" width="400px" muted="" playsinline=""></video>
         <div id="button-area"></div>
         <div id="remote-media-area"></div>
-        <script type="module" src="ayumi.js"></script>
-        
-        <p id="counter">0</p>
-        <p><input type="button" id=btnAdd value="♡"></p>
-      </body>
+       
+        <script type="module" src="main.js"></script>
+        <script type="module" src="./ayumi.js"></script>
+      
+        <!--<script type="module">
+        import {addCount} from "./ayumi.js";
+        window.addEventListner('DOMContentLoaded', ()=>{
+          const likeImg = document.querySelector("#like-img");
+          likeImg.addEventListener("click", addCount);
+        });
+      </script>
+       -->
+       <!--
+       <script>
+        let counter = 0;
+    
+        function addCount() {
+            counter++;
+            document.getElementById("counter").textContent = counter;
+        }
+    
+        window.addEventListener("DOMContentLoaded", () => {
+            const likeImg = document.getElementById("like-img");
+            likeImg.addEventListener("click", addCount);
+        });
+    </script>
+    -->
+    <script src="ayumi2.js"></script>
+         
+        <!--<input type="image"  src="..\img\heart.png" alt="Like" id=btnAdd />-->
+        <!--<a href="javascript:addCount();"><img src="..\img\heart.png" alt="Like"></a>-->
+        <img src="./img/heart.png" alt="Like" onclick="addCount()" id="btnAdd"><span id="counter">0</span>
+      
+    </body>
 </html>

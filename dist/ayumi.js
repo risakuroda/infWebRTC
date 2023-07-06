@@ -684,6 +684,7 @@ const token = new (0, _room.SkyWayAuthToken)({
         room.onStreamPublished.add((e)=>subscribeAndAttach(e.publication));
     };
 })();
+<<<<<<< HEAD:dist/ayumi.js
 let counter, btnAdd;
 let i;
 function addCount() {
@@ -697,6 +698,8 @@ window.addEventListener("load", ()=>{
     i = 0;
     btnAdd.addEventListener("click", addCount);
 });
+=======
+>>>>>>> afd1e65b425f5368129a484c7a3f15da57189c3e:dist/ayumi.f9b5af4b.js
 
 },{"@skyway-sdk/room":"aJVWS"}],"aJVWS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
