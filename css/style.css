@@ -3,8 +3,7 @@
 #bo{
     background-color: darksalmon;
 }
-<<<<<<< HEAD
-=======
+
 .button {
     left: calc(50% - 100px);
   }
@@ -42,17 +41,12 @@
 
 #counter{
     width: 5%;
-    font-size: 15pt;
-    padding-left:1em
+    font-size: 13pt;
+    padding-left:1.5em
 }
 
 #btnAdd{
-    width: 5%;
-    font-size: 2pt;
+    width: 4%;
+    font-size: 1pt;
+    color:#FF0461;
 }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> d00b435af159bb541b634db809305d836c916fdc
->>>>>>> fac37072cc72d7ecdf8612dbbc7d670433d9b32f

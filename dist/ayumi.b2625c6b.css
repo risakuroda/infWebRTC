@@ -28,13 +28,14 @@
 
 #counter {
   width: 5%;
-  padding-left: 1em;
-  font-size: 15pt;
+  padding-left: 1.5em;
+  font-size: 13pt;
 }
 
 #btnAdd {
-  width: 5%;
-  font-size: 2pt;
+  color: #ff0461;
+  width: 4%;
+  font-size: 1pt;
 }
 
 /*# sourceMappingURL=ayumi.b2625c6b.css.map */
