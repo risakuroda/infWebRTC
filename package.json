@@ -5,10 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel ./src/index.html",
-    "yuuri":"parcel ./src/videochat-top.html",
-    "ayumi":"parcel ./src/ayumi.html",
-    "rinka":"parcel ./src/search2.html",
-    "risa":"parcel ./src/risa.html",
+    "build":"parcel ./src/*",
     "test": "echo \"Error: no test specified\""
   },
   "author": "",

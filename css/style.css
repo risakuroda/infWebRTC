@@ -40,13 +40,19 @@
 }
 
 #counter{
-    width: 5%;
-    font-size: 13pt;
-    padding-left:1em
+    font-size: 15pt;
+    vertical-align: 15px;
+    
 }
 
 #btnAdd{
-    width: 4%;
-    font-size: 1pt;
+<<<<<<< HEAD
+    width: 100%;
+    font-size: 64pt;
+}
+=======
+    width: 5%;
+    
     
 }
+>>>>>>> afd1e65b425f5368129a484c7a3f15da57189c3e
