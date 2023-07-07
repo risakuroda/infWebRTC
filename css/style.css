@@ -49,3 +49,22 @@
     width: 100%;
     font-size: 64pt;
 }
+#candy{
+  background-image: url("../img/color.jpg");
+}
+body{
+  background-color: #FFEFD5;
+}
+.row{
+  margin-left: 200px;
+  margin-top: 100px;
+}
+#music{
+ 
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#movie{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
