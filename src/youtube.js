@@ -7,11 +7,14 @@ function fetchData(keyword){
   .then(data => {
     //ユーチューブを4つ出力。
     for(let i=0; i < 4; i++){
-      //
       console.log(data.items[i].id.videoId);
+      //dataの中のitemsのi番目のidの中のvideoIdを取得
       const videoID = data.items[i].id.videoId;
+      //iframeをファイルのどこかに生成＝youtubeAppend
       const youtubeAppend = document.createElement('iframe');
+      //取得したvideoIDをユーチューブ閲覧のURL末尾に挿入し、それを下記のsrc属性に追加する。
       youtubeAppend.src=`https://www.youtube.com/embed/${videoID}`;
+      //1行目で取得したid、youtubeタグの子要素にyoutubeAppendを当てる。
       youtube.appendChild(youtubeAppend);
     }
   })
@@ -19,7 +22,8 @@ function fetchData(keyword){
     console.log(error);
   })
 }
+//クエリ文字取得
 const params = decodeURI(location.search);
+//paramsから検索に必要な部分だけを取得
 const search = params.slice(23);
-console.log(search);
 fetchData(search);
