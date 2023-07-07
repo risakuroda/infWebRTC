@@ -53,18 +53,74 @@
   background-image: url("../img/color.jpg");
 }
 body{
-  background-color: #FFEFD5;
+  background-image: url("../img/color.jpg");
 }
-.row{
+#bunya{
   margin-left: 200px;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 #music{
  
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 #movie{
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+#youtube{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#divination{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#karaoke{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#alcohol{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#money{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#global{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#beauty{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#sports{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#feature{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#fashion{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#local-video{
+margin-left: 450px;
+
+}
+#remote-video-area{
+ margin-left: 200px;
+  }
+  #remote-audio-area{
+    margin-left: 200px;
+  }
+  #remote-text-area{
+    margin-left: 200px;
+  }
+  #join{
+    text-align: center;
+  }
