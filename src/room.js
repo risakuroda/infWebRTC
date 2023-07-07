@@ -46,17 +46,27 @@ const token = new SkyWayAuthToken({
   const buttonArea = document.getElementById('button-area');
   const remoteVideoArea = document.getElementById('remote-video-area');
   const remoteAudioArea = document.getElementById('remote-audio-area');
+  const remoteTextArea = document.getElementById('remote-text-area');
+  const dataStreamInput = document.getElementById('data-stream');
   
   const params = decodeURI(location.search);
   const roomNameInput = params.slice(6,-16);
   
+  const userName = document.getElementById('user-name');
   const myId = document.getElementById('my-id');
   const joinButton = document.getElementById('join');
+  const writeButton = document.getElementById('write');
 
   const { audio, video } = await SkyWayStreamFactory.createMicrophoneAudioAndCameraStream();
   video.attach(localVideo);
   await localVideo.play();
   
+  const data = await SkyWayStreamFactory.createDataStream();
+  writeButton.onclick = () => {
+    data.write(dataStreamInput.value);
+    dataStreamInput.value = '';
+  };
+
   joinButton.onclick = async () => {
     if (roomNameInput === '') return;
 
@@ -75,6 +85,7 @@ const token = new SkyWayAuthToken({
   
     await me.publish(audio);
     await me.publish(video);
+    await me.publish(data);
   
     const subscribeAndAttach = (publication) => {
       if (publication.publisher.id === me.id) return;
@@ -100,6 +111,13 @@ const token = new SkyWayAuthToken({
             newMedia.controls = true;
             newMedia.autoplay = true;
             break;
+          case 'data':
+            const elm = document.createElement('div');
+            remoteTextArea.appendChild(elm);
+            elm.innerText = 'data\n';
+            stream.onData.add((data) => {
+              elm.innerText += data + '\n';
+            });
           default: return;
         }
         switch (stream.track.kind){
