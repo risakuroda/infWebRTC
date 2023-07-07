@@ -133,6 +133,13 @@ const token = new SkyWayAuthToken({
             remoteAudioArea.appendChild(elm);
             audioIdArea.append(subscribe);
             break;
+          case 'data':
+            elm = document.createElement('div');
+            remoteTextArea.appendChild(elm);
+            elm.innerText = '\n';
+            stream.onData.add((data) => {
+              elm.innerText += data + '\n';
+            });
           default: return;
         }
       };
