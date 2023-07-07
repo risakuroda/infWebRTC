@@ -108,10 +108,6 @@ body{
   margin-top: 10px;
   margin-bottom: 10px;
 }
-#local-video{
-margin-left: 450px;
-
-}
 #remote-video-area{
  margin-left: 200px;
   }
@@ -120,7 +116,15 @@ margin-left: 450px;
   }
   #remote-text-area{
     margin-left: 200px;
+    border: solid;
+  }
+  #my-text-area{
+    border: solid;
   }
   #join{
     text-align: center;
+  }
+
+  #local-video{
+    margin-left: 100px;
   }

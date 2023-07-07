@@ -10,10 +10,19 @@
     <title>room</title>
 </head>
 <body>
-    <p>ID: <span id="my-id"></span><button id="join">ルームに参加する</button></p>
-    <video id="local-video" width="400px" muted playsinline></video>
-    write dataStream: <input id="data-stream" type="text" />
-    <button id="write">テキスト送信</button>
+ <div class="container-fluid">
+    <div class="row">
+    <div class="top">ID: <span id="my-id"></span></div>
+    </div>
+    <div class="row">
+        <div class="col-2 content"><button id="join">ルームに参加する</button></div>
+         <div class="col-7 content"><video id="local-video" width="400px" muted playsinline></video></div>
+        <div class="col-3 content">write dataStream: <input id="data-stream" type="text" />
+        <button id="write">テキスト送信</button></div>
+    </div>
+</div>
+
+  
    
     <div class="container-fluid">
         <div id="remote-video-area" class="row" ></div>
