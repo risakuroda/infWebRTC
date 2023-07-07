@@ -1,4 +1,8 @@
+/**
+ * ビデオ通話とテキストチャットを行うためのJavaScript
+ */
 import {nowInSec,SkyWayAuthToken,SkyWayContext,SkyWayRoom,SkyWayStreamFactory,uuidV4,} from '@skyway-sdk/room';
+//SkyWayAuthToken発行
 const token = new SkyWayAuthToken({
   jti: uuidV4(),
   iat: nowInSec(),
@@ -45,7 +49,6 @@ const token = new SkyWayAuthToken({
   const localVideo = document.getElementById('local-video');
   const videoIdArea = document.getElementById('video-id-area');
   const audioIdArea = document.getElementById('audio-id-area');
-  const textIdArea = document.getElementById('text-id-area');
 
   const remoteVideoArea = document.getElementById('remote-video-area');
   const remoteAudioArea = document.getElementById('remote-audio-area');
@@ -71,7 +74,7 @@ const token = new SkyWayAuthToken({
     data.write(dataStreamInput.value);
     const elm = document.createElement('div');
     myTextArea.appendChild(elm);
-    elm.innerText=dataStreamInput.value;
+    elm.innerText+=dataStreamInput.value;
     dataStreamInput.value = '';
   };
 
@@ -79,7 +82,7 @@ const token = new SkyWayAuthToken({
     data.write(goodButton.value);
     const elm = document.createElement('div');
     myTextArea.appendChild(elm);
-    elm.innerText=goodButton.value;
+    elm.innerText+=goodButton.value;
     goodButton.value = '♥';
   };
 
@@ -106,43 +109,48 @@ const token = new SkyWayAuthToken({
       subscribe.className = 'col-3 content';
       subscribe.innerText = `${publication.publisher.id}`;
 
-      async function mediaRun() {
+      let elm;
+      async function videoAndAudio() {
         const { stream } = await me.subscribe(publication.id);
 
         switch (stream.contentType) {
           case 'video':
-            {
-              const elm = document.createElement('video');
-              elm.className = 'col-3 content';
-              elm.playsInline = true;
-              elm.autoplay = true;
-              stream.attach(elm);
-              remoteVideoArea.appendChild(elm);
-              videoIdArea.append(subscribe);
-            }
+            elm = document.createElement('video');
+            elm.className = 'col-3 content';
+            elm.playsInline = true;
+            elm.autoplay = true;
+            stream.attach(elm);
+            remoteVideoArea.appendChild(elm);
+            videoIdArea.append(subscribe);
             break;
           case 'audio':
-            {
-              const elm = document.createElement('audio');
-              elm.className = 'col-3 content';
-              elm.controls = true;
-              elm.autoplay = true;
-              stream.attach(elm);
-              remoteAudioArea.appendChild(elm);
-              audioIdArea.append(subscribe);
-            }
+            elm = document.createElement('audio');
+            elm.className = 'col-3 content';
+            elm.controls = true;
+            elm.autoplay = true;
+            stream.attach(elm);
+            remoteAudioArea.appendChild(elm);
+            audioIdArea.append(subscribe);
             break;
-          case 'data': {
-            const elm = document.createElement('div');
+          default: return
+        }
+      };
+      async function textChat() {
+        const { stream } = await me.subscribe(publication.id);
+
+        switch (stream.contentType) {
+          case 'data':
+            elm = document.createElement('div');
             remoteTextArea.appendChild(elm);
             elm.innerText = 'data\n';
             stream.onData.add((data) => {
               elm.innerText += data + '\n';
             });
-          }
+          default: return;
         }
       };
-      mediaRun()
+      videoAndAudio()
+      textChat()
     };
     channel.publications.forEach(subscribeAndAttach);
     channel.onStreamPublished.add((e) => subscribeAndAttach(e.publication));
