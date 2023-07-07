@@ -49,3 +49,82 @@
     width: 100%;
     font-size: 64pt;
 }
+#candy{
+  background-image: url("../img/color.jpg");
+}
+body{
+  background-image: url("../img/color.jpg");
+}
+#bunya{
+  margin-left: 200px;
+  margin-top: 50px;
+}
+#music{
+ 
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#movie{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#youtube{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#divination{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#karaoke{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#alcohol{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#money{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#global{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#beauty{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#sports{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#feature{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#fashion{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#remote-video-area{
+ margin-left: 200px;
+  }
+  #remote-audio-area{
+    margin-left: 200px;
+  }
+  #remote-text-area{
+    margin-left: 200px;
+    border: solid;
+  }
+  #my-text-area{
+    border: solid;
+  }
+  #join{
+    text-align: center;
+  }
+
+  #local-video{
+    margin-left: 100px;
+  }
