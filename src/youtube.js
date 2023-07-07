@@ -16,8 +16,7 @@ function fetchData(keyword){
     console.log(error);
   })
 }
-youtube.onclick = () =>{
-  fetchData('もっぱん');
-};
-
-
+const params = decodeURI(location.search);
+const search = params.slice(23);
+console.log(search);
+fetchData(search);

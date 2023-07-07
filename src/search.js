@@ -31,4 +31,7 @@ youtube.onclick = () =>{
   fetchData('ヒットソング');
 };
 
+youtube.onclick = () =>{
+  fetchData('もっぱん');
+};
 

@@ -43,11 +43,13 @@ const token = new SkyWayAuthToken({
 }).encode('gHYUFPOituZ/3UsaCqP5sHLKsF+4i2+Z85+YuozeHEs=');
 (async () => {
   const localVideo = document.getElementById('local-video');
+  const buttonArea = document.getElementById('button-area');
   const remoteVideoArea = document.getElementById('remote-video-area');
   const remoteAudioArea = document.getElementById('remote-audio-area');
-  const roomNameInput = location.search;
-  const userName = document.getElementById('user-name');
-
+  
+  const params = decodeURI(location.search);
+  const roomNameInput = params.slice(6,-16);
+  
   const myId = document.getElementById('my-id');
   const joinButton = document.getElementById('join');
 
@@ -56,16 +58,20 @@ const token = new SkyWayAuthToken({
   await localVideo.play();
   
   joinButton.onclick = async () => {
-    if (roomNameInput.value === '') return;
+    if (roomNameInput === '') return;
+
+    
+    console.log(params);
+    console.log(roomNameInput);
 
     const context = await SkyWayContext.Create(token);
     const room = await SkyWayRoom.FindOrCreate(context, {
       type: 'p2p',
-      name: roomNameInput.value,
+      name: roomNameInput,
     });
     const me = await room.join();
   
-    myId.textContent = userName + me.id;
+    myId.textContent = me.id;
   
     await me.publish(audio);
     await me.publish(video);
