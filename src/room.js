@@ -110,6 +110,7 @@ const token = new SkyWayAuthToken({
       subscribe.innerText = `${publication.publisher.id}`;
 
       let elm;
+      
       async function videoAndAudio() {
         const { stream } = await me.subscribe(publication.id);
 
@@ -132,25 +133,10 @@ const token = new SkyWayAuthToken({
             remoteAudioArea.appendChild(elm);
             audioIdArea.append(subscribe);
             break;
-          default: return
-        }
-      };
-      async function textChat() {
-        const { stream } = await me.subscribe(publication.id);
-
-        switch (stream.contentType) {
-          case 'data':
-            elm = document.createElement('div');
-            remoteTextArea.appendChild(elm);
-            elm.innerText = 'data\n';
-            stream.onData.add((data) => {
-              elm.innerText += data + '\n';
-            });
           default: return;
         }
       };
-      videoAndAudio()
-      textChat()
+      videoAndAudio();
     };
     channel.publications.forEach(subscribeAndAttach);
     channel.onStreamPublished.add((e) => subscribeAndAttach(e.publication));
