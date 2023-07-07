@@ -43,14 +43,11 @@ const token = new SkyWayAuthToken({
 }).encode('gHYUFPOituZ/3UsaCqP5sHLKsF+4i2+Z85+YuozeHEs=');
 (async () => {
   const localVideo = document.getElementById('local-video');
-  const videoIdArea = document.getElementById('video-id-area');
-  const audioIdArea = document.getElementById('audio-id-area');
-  const textIdArea = document.getElementById('text-id-area');
+  const buttonArea = document.getElementById('button-area');
 
   const remoteVideoArea = document.getElementById('remote-video-area');
   const remoteAudioArea = document.getElementById('remote-audio-area');
   const remoteTextArea = document.getElementById('remote-text-area');
-  const myTextArea = document.getElementById('my-text-area');
 
   const params = decodeURI(location.search);
   const roomNameInput = params.slice(6,-16);
@@ -60,7 +57,6 @@ const token = new SkyWayAuthToken({
   const myId = document.getElementById('my-id');
   const joinButton = document.getElementById('join');
   const writeButton = document.getElementById('write');
-  const goodButton = document.getElementById('good');
 
   const { audio, video } = await SkyWayStreamFactory.createMicrophoneAudioAndCameraStream();
   video.attach(localVideo);
@@ -70,17 +66,9 @@ const token = new SkyWayAuthToken({
   writeButton.onclick = () => {
     data.write(dataStreamInput.value);
     const elm = document.createElement('div');
-    myTextArea.appendChild(elm);
     elm.innerText=dataStreamInput.value;
+    remoteTextArea.appendChild(elm);
     dataStreamInput.value = '';
-  };
-
-  goodButton.onclick = () => {
-    data.write(goodButton.value);
-    const elm = document.createElement('div');
-    myTextArea.appendChild(elm);
-    elm.innerText=goodButton.value;
-    goodButton.value = '♥';
   };
 
   joinButton.onclick = async () => {
@@ -102,9 +90,9 @@ const token = new SkyWayAuthToken({
     const subscribeAndAttach = (publication) => {
       if (publication.publisher.id === me.id) return;
 
-      const subscribe = document.createElement('div');
-      subscribe.className = 'col-3 content';
-      subscribe.innerText = `${publication.publisher.id}`;
+      const subscribeButton = document.createElement('div');
+      subscribeButton.className = 'col-3 content';
+      subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
 
       async function mediaRun() {
         const { stream } = await me.subscribe(publication.id);
@@ -118,7 +106,6 @@ const token = new SkyWayAuthToken({
               elm.autoplay = true;
               stream.attach(elm);
               remoteVideoArea.appendChild(elm);
-              videoIdArea.append(subscribe);
             }
             break;
           case 'audio':
@@ -129,7 +116,6 @@ const token = new SkyWayAuthToken({
               elm.autoplay = true;
               stream.attach(elm);
               remoteAudioArea.appendChild(elm);
-              audioIdArea.append(subscribe);
             }
             break;
           case 'data': {

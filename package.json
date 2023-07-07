@@ -1,11 +1,11 @@
 {
-  "name": "tutorial",
+  "name": "infwebrtc",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "dev": "parcel ./src/index.html",
-    "build":"parcel ./src/*",
+    "build": "npm run transpile && parcel build ./src/videochat-top.html --public-url ./",
+    "dev": "parcel ./src/*",
+    "transpile": "babel src/main.ts -o src/videochat-top.js",
     "test": "echo \"Error: no test specified\""
   },
   "author": "",
