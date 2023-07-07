@@ -114,16 +114,23 @@ body{
     margin-left: 200px;
   }
   #remote-text-area{
-    margin-left: 200px;
+    margin-left: 30px;
     border: solid;
+    height: 300px;
+    width: 200px;
+    overflow-y:scroll;
   }
   #my-text-area{
     border: solid;
+    height: 300px;
+    width: 200px;
+    overflow-y:scroll;
   }
   #join{
     text-align: center;
   }
+  #write{
+    margin-right: 5px;
 
-  #local-video{
-    margin-left: 100px;
   }
+

@@ -20,13 +20,15 @@
             <div class="col-2 content">
                 <button id="join">ルームに参加する</button>
             </div>
-            <div class="col-7 content">
-                <video id="local-video" width="400px" muted playsinline></video>
+            <div class="col-5 content">
+                <video id="local-video" width="430px" muted playsinline></video>
             </div> 
-            <div class="col-3 content"><input id="data-stream" type="text" maxlength="20" />
-            <button id="write">テキスト送信</button><button id="good" value="♥">いいね</button>
-                <div id="my-text-area" class="col-3"></div>
-                <div id="remote-text-area" class="col-3"></div>
+            <div class="col-5 content"><input id="data-stream" type="text" maxlength="20" />
+                <button id="write">テキスト送信</button><button id="good" value="♥">いいね</button>
+                <div class="row">
+                    <div id="my-text-area" class="col-3 content"></div>
+                    <div id="remote-text-area" class="col-3 content"></div>
+                </div>
             </div>
         </div>
     </div>
