@@ -1,5 +1,5 @@
 const youtube = document.getElementById("youtube");
-
+//中山り　黒田
 function fetchData(keyword){
   //APIkey
   fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyDq5ryRKysoKd7leLLNHqb_UIgqRVNOeuc&type=video&part=snippet&q=${keyword}`)
