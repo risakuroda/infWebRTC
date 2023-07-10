@@ -47,9 +47,7 @@ const token = new SkyWayAuthToken({
 }).encode('gHYUFPOituZ/3UsaCqP5sHLKsF+4i2+Z85+YuozeHEs=');
 (async () => {
   const localVideo = document.getElementById('local-video');
-  const videoIdArea = document.getElementById('video-id-area');
-  const audioIdArea = document.getElementById('audio-id-area');
-
+  
   const remoteVideoArea = document.getElementById('remote-video-area');
   const remoteAudioArea = document.getElementById('remote-audio-area');
   const remoteTextArea = document.getElementById('remote-text-area');
@@ -62,6 +60,7 @@ const token = new SkyWayAuthToken({
 
   const myId = document.getElementById('my-id');
   const joinButton = document.getElementById('join');
+  const exitButton = document.getElementById('exit');
   const writeButton = document.getElementById('write');
   const goodButton = document.getElementById('good');
 
@@ -146,4 +145,11 @@ const token = new SkyWayAuthToken({
     channel.publications.forEach(subscribeAndAttach);
     channel.onStreamPublished.add((e) => subscribeAndAttach(e.publication));
   };
+
+  exitButton.onclick = () => {
+    const source = video.querySelector('source');
+    source.src = '';
+    video.load();
+    location.href="videochat-top.html";
+  }
 })();
