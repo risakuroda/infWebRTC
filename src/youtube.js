@@ -2,7 +2,7 @@ const youtube = document.getElementById("youtube");
 //中山り　黒田
 function fetchData(keyword){
   //APIkey
-  fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyDq5ryRKysoKd7leLLNHqb_UIgqRVNOeuc&type=video&part=snippet&q=${keyword}`)
+  fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyApIvZ8TBjELwOKFSkT1YVMay0X1d-JP_w&type=video&part=snippet&q=${keyword}`)
   .then(response => response.json())
   .then(data => {
     //ユーチューブを4つ出力。
