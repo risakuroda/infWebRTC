@@ -130,7 +130,6 @@ const token = new SkyWayAuthToken({
             elm.autoplay = true;
             stream.attach(elm);
             remoteAudioArea.appendChild(elm);
-            remoteAudioArea.appendChild(subscribe);
             break;
           case 'data':
             elm = document.createElement('div');
