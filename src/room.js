@@ -147,9 +147,7 @@ const token = new SkyWayAuthToken({
   };
 
   exitButton.onclick = () => {
-    const source = video.querySelector('source');
-    source.src = '';
-    video.load();
+    localVideo.load();
     location.href="videochat-top.html";
   }
 })();
