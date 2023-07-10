@@ -48,6 +48,7 @@ const token = new SkyWayAuthToken({
     const goodButton = document.getElementById('good');
     const params = decodeURI(location.search);
     const roomNameInput = params.slice(6,-16);
+    const joinButton = document.getElementById('join');
 
     const data = await SkyWayStreamFactory.createDataStream();
     writeButton.onclick = () => {
@@ -98,8 +99,8 @@ const token = new SkyWayAuthToken({
                 default: return;
               }
             };
-            textChat();
         }
+        textChat();
         channel.publications.forEach(subscribeAndAttach);
         channel.onStreamPublished.add((e) => subscribeAndAttach(e.publication));
     }
