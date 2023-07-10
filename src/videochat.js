@@ -49,6 +49,7 @@ const token = new SkyWayAuthToken({
   const localVideo = document.getElementById('local-video');
   const videoIdArea = document.getElementById('video-id-area');
   const audioIdArea = document.getElementById('audio-id-area');
+  const remoteArea = document.getElementById('remote-area');
 
   const remoteVideoArea = document.getElementById('remote-video-area');
   const remoteAudioArea = document.getElementById('remote-audio-area');
@@ -76,7 +77,6 @@ const token = new SkyWayAuthToken({
 
     await me.publish(audio);
     await me.publish(video);
-    await me.publish(data);
 
     const subscribeAndAttach = (publication) => {
       if (publication.publisher.id === me.id) return;
@@ -84,31 +84,30 @@ const token = new SkyWayAuthToken({
       const subscribe = document.createElement('div');
       subscribe.className = 'col-3 content';
       subscribe.innerText = `${publication.publisher.id}`;
-
-      let elm;
       
       async function videoAndAudio() {
         const { stream } = await me.subscribe(publication.id);
 
+        let elm;
         switch (stream.contentType) {
-          case 'video':
-            elm = document.createElement('video');
-            elm.className = 'col-3 content';
-            elm.playsInline = true;
-            elm.autoplay = true;
-            stream.attach(elm);
-            remoteVideoArea.appendChild(elm);
-            videoIdArea.append(subscribe);
-            break;
-          case 'audio':
-            elm = document.createElement('audio');
-            elm.className = 'col-3 content';
-            elm.controls = true;
-            elm.autoplay = true;
-            stream.attach(elm);
-            remoteAudioArea.appendChild(elm);
-            audioIdArea.append(subscribe);
-            break;
+            case 'video':
+                elm = document.createElement('video');
+                elm.className = 'col-3 content';
+                elm.playsInline = true;
+                elm.autoplay = true;
+                stream.attach(elm);
+                remoteVideoArea.appendChild(elm);
+                break;
+            case 'audio':
+                elm = document.createElement('audio');
+                elm.className = 'col-3 content';
+                elm.controls = true;
+                elm.autoplay = true;
+                stream.attach(elm);
+                remoteAudioArea.appendChild(elm);
+                remoteAudioArea.appendChild(subscribe);
+                break;
+            default: return;
         }
       };
       videoAndAudio();

@@ -106,7 +106,7 @@ const token = new SkyWayAuthToken({
       if (publication.publisher.id === me.id) return;
 
       const subscribe = document.createElement('div');
-      subscribe.className = 'col-3 content';
+      subscribe.className = 'col-4 content';
       subscribe.innerText = `${publication.publisher.id}`;
 
       let elm;
@@ -117,21 +117,20 @@ const token = new SkyWayAuthToken({
         switch (stream.contentType) {
           case 'video':
             elm = document.createElement('video');
-            elm.className = 'col-3 content';
+            elm.className = 'col-4 content';
             elm.playsInline = true;
             elm.autoplay = true;
             stream.attach(elm);
             remoteVideoArea.appendChild(elm);
-            videoIdArea.append(subscribe);
             break;
           case 'audio':
             elm = document.createElement('audio');
-            elm.className = 'col-3 content';
+            elm.className = 'col-4 content';
             elm.controls = true;
             elm.autoplay = true;
             stream.attach(elm);
             remoteAudioArea.appendChild(elm);
-            audioIdArea.append(subscribe);
+            remoteAudioArea.appendChild(subscribe);
             break;
           case 'data':
             elm = document.createElement('div');
