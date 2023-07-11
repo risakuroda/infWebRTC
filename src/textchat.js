@@ -99,8 +99,8 @@ const token = new SkyWayAuthToken({
                 default: return;
               }
             };
+            textChat();
         }
-        textChat();
         channel.publications.forEach(subscribeAndAttach);
         channel.onStreamPublished.add((e) => subscribeAndAttach(e.publication));
     }

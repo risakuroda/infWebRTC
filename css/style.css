@@ -134,4 +134,6 @@ body{
   #exit{
     margin-top: 5px;
   }
-
+  .local-video{
+    border: solid;
+  }

@@ -47,6 +47,10 @@ const token = new SkyWayAuthToken({
 }).encode('gHYUFPOituZ/3UsaCqP5sHLKsF+4i2+Z85+YuozeHEs=');
 (async () => {
   const localVideo = document.getElementById('local-video');
+  const cameraOn = document.getElementById('camera-on');
+  const cameraOff = document.getElementById('camera-off');
+  const audioOn = document.getElementById('audio-on');
+  const audioOff = document.getElementById('audio-off');
   
   const remoteVideoArea = document.getElementById('remote-video-area');
   const remoteAudioArea = document.getElementById('remote-audio-area');
@@ -84,6 +88,19 @@ const token = new SkyWayAuthToken({
     elm.innerText+=goodButton.value;
     goodButton.value = '♥';
   };
+
+  cameraOn.onclick = () => {
+    localVideo.play();
+  }
+  cameraOff.onclick = () => {
+    localVideo.load();
+  }
+  audioOn.onclick = () => {
+    audio.enabled = true;
+  }
+  audioOff.onclick = () => {
+    audio.enabled = false;
+  }
 
   joinButton.onclick = async () => {
     if (roomNameInput === '') return;
