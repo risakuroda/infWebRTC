@@ -94,10 +94,10 @@ const token = new SkyWayAuthToken({
       name: roomNameInput,
     });
     const me = await channel.join();
-    myTextArea.textContent += `=====\n You joined \n=====\n`;
+    myTextArea.innerText += `=======\n You joined \n=======\n`;
 
     channel.onMemberJoined.add((e) => {
-      remoteTextArea.textContent += `=====\n ${e.member.id.slice(0, 9)} joined \n=====\n`;
+      remoteTextArea.innerText += `=======\n ${e.member.id.slice(0, 10)} joined \n=======\n`;
     });
 
     myId.textContent = me.id;
@@ -189,7 +189,7 @@ const token = new SkyWayAuthToken({
       disposeVideoElement(remoteVideo);
       disposeVideoElement(remoteAudio);
 
-      remoteTextArea.textContent += `=====\n ${e.member.id.slice(0, 9)} left \n=====\n`;
+      remoteTextArea.innerText += `=======\n ${e.member.id.slice(0, 10)} left \n=======\n`;
     });
 
     me.onLeft.once(() => {
@@ -199,7 +199,7 @@ const token = new SkyWayAuthToken({
       Array.from(remoteAudioArea.children).forEach((element) => {
         disposeVideoElement(element);
       });
-      myTextArea.textContent += `=====\n You left \n=====\n`;
+      myTextArea.innerText += "=======\n You left \n=======\n";
       channel.dispose();
       channel = undefined;
     });

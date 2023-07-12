@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "npm run transpile && parcel build ./src/videochat-top.html --public-url ./",
-    "dev": "parcel ./src/*",
+    "dev": "parcel ./src/videochat-top.html",
     "transpile": "babel src/main.ts -o src/videochat-top.js",
     "test": "echo \"Error: no test specified\""
   },
