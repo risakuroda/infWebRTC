@@ -66,7 +66,6 @@ const token = new SkyWayAuthToken({
 
   const { audio, video } = await SkyWayStreamFactory.createMicrophoneAudioAndCameraStream();
   video.attach(localVideo);
-  let camera = true;
   await localVideo.play();
 
   const data = await SkyWayStreamFactory.createDataStream();
@@ -95,6 +94,11 @@ const token = new SkyWayAuthToken({
       name: roomNameInput,
     });
     const me = await channel.join();
+    myTextArea.textContent += `=====\n You joined \n=====\n`;
+
+    channel.onMemberJoined.add((e) => {
+      remoteTextArea.textContent += `=====\n ${e.member.id.slice(0, 9)} joined \n=====\n`;
+    });
 
     myId.textContent = me.id;
 
@@ -110,9 +114,8 @@ const token = new SkyWayAuthToken({
       subscribe.innerText = `${publication.publisher.id}`;
 
       let elm;
-      
-      async function videoAndAudio(camera) {
-        const { stream } = await me.subscribe(publication.id);
+      async function videoAndAudio() {
+        const { stream, subscription } = await me.subscribe(publication.id);
 
         switch (stream.contentType) {
           case 'video':
@@ -120,6 +123,10 @@ const token = new SkyWayAuthToken({
             elm.className = 'col-4 content';
             elm.playsInline = true;
             elm.autoplay = true;
+            elm.setAttribute(
+              'data-member-id',
+              subscription.publication.publisher.id
+            );
             stream.attach(elm);
             remoteVideoArea.appendChild(elm);
             break;
@@ -128,6 +135,10 @@ const token = new SkyWayAuthToken({
             elm.className = 'col-4 content';
             elm.controls = true;
             elm.autoplay = true;
+            elm.setAttribute(
+              'data-member-id',
+              subscription.publication.publisher.id
+            );
             stream.attach(elm);
             remoteAudioArea.appendChild(elm);
             break;
@@ -141,13 +152,60 @@ const token = new SkyWayAuthToken({
           default: return;
         }
       };
-      videoAndAudio(camera);
+      videoAndAudio();
+
+      async function cameraOn(newValue){
+        const { stream } = await me.subscribe(publication.id);
+
+        switch (stream.contentType) {
+          case 'video':
+            elm.isMuted = !newValue;
+            stream.attach(elm);
+            break;
+          default: return;
+        }
+      } 
     };
     channel.publications.forEach(subscribeAndAttach);
     channel.onStreamPublished.add((e) => subscribeAndAttach(e.publication));
-  };
 
-  exitButton.onclick = () => {
-    location.href="videochat-top.html";
-  }
+    const disposeVideoElement = (remoteVideo) => {
+      const stream = remoteVideo.srcObject;
+      stream.getTracks().forEach((track) => track.stop());
+      remoteVideo.srcObject = null;
+      remoteVideo.remove();
+    };
+
+    channel.onMemberLeft.add((e) => {
+      if (e.member.id === me.id) return;
+
+      const remoteVideo = remoteVideoArea.querySelector(
+        `[data-member-id="${e.member.id}"]`
+      );
+      const remoteAudio = remoteAudioArea.querySelector(
+        `[data-member-id="${e.member.id}"]`
+      );
+
+      disposeVideoElement(remoteVideo);
+      disposeVideoElement(remoteAudio);
+
+      remoteTextArea.textContent += `=====\n ${e.member.id.slice(0, 9)} left \n=====\n`;
+    });
+
+    me.onLeft.once(() => {
+      Array.from(remoteVideoArea.children).forEach((element) => {
+        disposeVideoElement(element);
+      });
+      Array.from(remoteAudioArea.children).forEach((element) => {
+        disposeVideoElement(element);
+      });
+      myTextArea.textContent += `=====\n You left \n=====\n`;
+      channel.dispose();
+      channel = undefined;
+    });
+    exitButton.addEventListener('click', () => me.leave(), {
+      once: true,
+    });
+    exitButton.onclick=()=>location.href='videochat-top.html';
+  };
 })();
