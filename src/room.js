@@ -97,7 +97,7 @@ const token = new SkyWayAuthToken({
     myTextArea.innerText += `=======\n You joined \n=======\n`;
 
     channel.onMemberJoined.add((e) => {
-      remoteTextArea.innerText += `=======\n ${e.member.id.slice(0, 10)} joined \n=======\n`;
+      remoteTextArea.innerText += `=======\n ${e.member.id.slice(0, 12)} joined \n=======\n`;
     });
 
     myId.textContent = me.id;
@@ -189,7 +189,7 @@ const token = new SkyWayAuthToken({
       disposeVideoElement(remoteVideo);
       disposeVideoElement(remoteAudio);
 
-      remoteTextArea.innerText += `=======\n ${e.member.id.slice(0, 10)} left \n=======\n`;
+      remoteTextArea.innerText += `=======\n ${e.member.id.slice(0, 12)} left \n=======\n`;
     });
 
     me.onLeft.once(() => {
